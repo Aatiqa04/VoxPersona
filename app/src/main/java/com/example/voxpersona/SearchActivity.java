@@ -1,5 +1,6 @@
 package com.example.voxpersona;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +38,28 @@ public class SearchActivity extends AppCompatActivity {
 
         // Load books or search results here
         loadBooks();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.navigation_home) {
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_search) {
+
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_library) {
+                    startActivity(new Intent(SearchActivity.this, LibraryActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_notifications) {
+                    startActivity(new Intent(SearchActivity.this, NotificationsActivity.class));
+                    return true;
+                } else {
+                    return false;
+                }
+
+
+            }
+        });
     }
 
     // Method to load books or search results

@@ -40,24 +40,24 @@ public class LibraryActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        // Go to Home Activity
-                        startActivity(new Intent(LibraryActivity.this, HomeActivity.class));
-                        return true;
-                    case R.id.navigation_search:
-                        // Go to Search Activity
-                        startActivity(new Intent(LibraryActivity.this, SearchActivity.class));
-                        return true;
-                    case R.id.navigation_library:
-                        // Already on Library
-                        return true;
-                    case R.id.navigation_notifications:
-                        // Go to Notifications Activity
-                        startActivity(new Intent(LibraryActivity.this, NotificationsActivity.class));
-                        return true;
+                if (item.getItemId() == R.id.navigation_home) {
+                    // Go to Home Activity
+                    startActivity(new Intent(LibraryActivity.this, HomeActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_search) {
+                    // Go to Search Activity
+                    startActivity(new Intent(LibraryActivity.this, SearchActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_library) {
+                    // Already on Library
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_notifications) {
+                    // Go to Notifications Activity
+                    startActivity(new Intent(LibraryActivity.this, NotificationsActivity.class));
+                    return true;
                 }
                 return false;
+
             }
         });
     }

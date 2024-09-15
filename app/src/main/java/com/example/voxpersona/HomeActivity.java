@@ -38,21 +38,22 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        return true;
-                    case R.id.navigation_search:
-                        startActivity(new Intent(HomeActivity.this, SearchActivity.class));
-                        return true;
-                    case R.id.navigation_library:
-                        startActivity(new Intent(HomeActivity.this, LibraryActivity.class));
-                        return true;
-                    case R.id.navigation_notifications:
-                        startActivity(new Intent(HomeActivity.this, NotificationsActivity.class));
-                        return true;
-                    default:
-                        return false;
+                if (item.getItemId() == R.id.navigation_home) {
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_search) {
+                    startActivity(new Intent(HomeActivity.this, SearchActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_library) {
+                    startActivity(new Intent(HomeActivity.this, LibraryActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_notifications) {
+                    startActivity(new Intent(HomeActivity.this, NotificationsActivity.class));
+                    return true;
+                } else {
+                    return false;
                 }
+
+
             }
         });
     }

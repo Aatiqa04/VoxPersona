@@ -41,24 +41,24 @@ public class NotificationsActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        // Go to Home Activity
-                        startActivity(new Intent(NotificationsActivity.this, HomeActivity.class));
-                        return true;
-                    case R.id.navigation_search:
-                        // Go to Search Activity
-                        startActivity(new Intent(NotificationsActivity.this, SearchActivity.class));
-                        return true;
-                    case R.id.navigation_library:
-                        // Go to Library Activity
-                        startActivity(new Intent(NotificationsActivity.this, LibraryActivity.class));
-                        return true;
-                    case R.id.navigation_notifications:
-                        // Already on Notifications
-                        return true;
+                if (item.getItemId() == R.id.navigation_home) {
+                    // Go to Home Activity
+                    startActivity(new Intent(NotificationsActivity.this, HomeActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_search) {
+                    // Go to Search Activity
+                    startActivity(new Intent(NotificationsActivity.this, SearchActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_library) {
+                    // Go to Library Activity
+                    startActivity(new Intent(NotificationsActivity.this, LibraryActivity.class));
+                    return true;
+                } else if (item.getItemId() == R.id.navigation_notifications) {
+                    // Already on Notifications
+                    return true;
                 }
                 return false;
+
             }
         });
     }
